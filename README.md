@@ -1,28 +1,28 @@
-SWE PROJECT GROUP E - HEALTH CENTRE SYSTEM
+# SWE PROJECT GROUP E - HEALTH CENTRE SYSTEM
 
-Overview
+## Overview
 The Health Centre Management System (HCMS) is a web application developed as part of the BCS 3106 Software Engineering semester project. 
 Designed to address the operational challenges of a local health centre with over 3000 registered patients, it enhances the efficiency of patient registration, appointment scheduling, and prescription management while improving overall patient experience.
 
-Table of Contents
+## Table of Contents
 - Features
 - Technologies Used
 - Testing
 - Contributors
 
-Features
+### Features
 1. Patient Registration: Efficiently register new patients with unique identifiers.
 2. Appointment Scheduling: Book and manage appointments with available doctors.
 3. Prescription Management: Record and manage prescriptions issued during appointments.
 4. Check-In Process: Allow patients to check in using their unique patient number or date of birth.
 5. User-Friendly Interface: Intuitive design for both patients and healthcare staff.
 
-Technologies Used
+### Technologies Used
 1. Programming Language: Python
 2. Web Framework: Flask
 3. Design Pattern: MVC (Model-View-Controller)
 
-Testing
+### Testing
 The software underwent rigorous testing, including:
 
 1. Unit Testing: Validated key functionalities such as patient registration, appointment scheduling, and prescription recording.
