@@ -31,7 +31,7 @@ The software underwent rigorous testing, including:
 4. Simulated User Acceptance Testing (UAT): Gathered feedback from team members acting as end users, which led to iterative improvements in the UI and workflow.
 
 ### Contributors
-GLORIA ABINEZA
-IAN MWANIKI KANYI
-MUSA KIPLANGAT BRIAN
-CHRISTINE OBURE
+- GLORIA ABINEZA
+- IAN MWANIKI KANYI
+- MUSA KIPLANGAT BRIAN
+- CHRISTINE OBURE
