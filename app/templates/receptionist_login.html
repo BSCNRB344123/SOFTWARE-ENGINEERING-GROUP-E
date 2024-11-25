@@ -1,0 +1,14 @@
+{# templates/receptionist_login.html #}
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Receptionist Login</h1>
+  <form method="post">
+      {{ form.hidden_tag() }}
+
+      {{ form.username.label }} {{ form.username() }}  {# Username label and input field #}
+      {{ form.password.label }} {{ form.password() }}  {# Password label and input field #}
+
+      {{ form.submit() }}  {# Submit button #}
+  </form>
+{% endblock %}

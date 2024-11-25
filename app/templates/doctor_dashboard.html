@@ -1,0 +1,44 @@
+<!-- templates/doctor_dashboard.html -->
+{% extends 'base.html' %}
+{% block title %}Doctor Dashboard{% endblock %}
+{% block content %}
+    <h1>Dr. {{ doctor.name }}'s Dashboard</h1>
+
+    <!-- Section for displaying appointments -->
+    <h2>Appointments</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Patient</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <!-- Add other columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+          {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.id }}</td>
+                <td>{{ appointment.patient.name }}</td>
+                <td>{{ appointment.date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ appointment.time.strftime('%H:%M') }}</td>
+                <td>{{ appointment.status }}</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <!-- Section for recording results -->
+    <h2>Record Results</h2>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {{ form.appointment_id.label }} {{ form.appointment_id() }}
+        {{ form.outcome.label }} {{ form.outcome() }}
+        {{ form.prescription.label }} {{ form.prescription() }}
+        {{ form.submit() }}
+    </form>
+
+{% endblock %}

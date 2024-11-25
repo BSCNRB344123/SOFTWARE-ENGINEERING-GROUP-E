@@ -1,0 +1,27 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Medical App</h1>
+    <p>
+      <!-- Add content for your home page here -->
+        {% if current_user.is_authenticated %}
+          <p>Hello, {{ current_user.username }}!</p>  {# Greet the authenticated user #}
+        {% else %}
+            <a href="{{ url_for('patient_login') }}">Login as a patient </a> to book an appointment or view your medical records.
+            <p>Don't have a patient account yet?  <a href="{{ url_for('register_patient') }}">Register as a new patient </a>.</p>
+
+            <br>
+
+            <a href="{{ url_for('doctor_login') }}">Doctor Login</a>  {# Link for doctor login #}
+            <p>Don't have a doctor account yet? <a href="{{ url_for('register_doctor') }}">Register as a new doctor</a>.</p>  {# Link for doctor registration #}
+            
+            <br>
+            <a href="{{ url_for('receptionist_login') }}">Receptionist Login</a>  {# Link for receptionist login #}
+            <p>Don't have a receptionist account yet? <a href="{{ url_for('receptionist_register') }}">Register as a new receptionist</a>.</p>  {# Link for receptionist registration #}
+        {% endif %}
+    </p>
+
+{% endblock %}
+

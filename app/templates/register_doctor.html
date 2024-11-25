@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Register Doctor</h1>
+<form method="post">
+    {{ form.hidden_tag() }}
+
+    {{ form.name.label }}<br>  {# Doctor's name label #}
+    {{ form.name(size=32) }}<br>  {# Doctor's name input field #}
+
+    {{ form.specialization.label }}<br>  {# Doctor's specialization label #}
+    {{ form.specialization(size=32) }}<br>  {# Doctor's specialization input field #}
+
+    {{ form.username.label }}<br>  {# Username label #}
+    {{ form.username(size=32) }}<br>  {# Username input field #}
+
+    {{ form.password.label }}<br>  {# Password label #}
+    {{ form.password(size=32) }}<br>  {# Password input field #}
+
+    {{ form.password2.label }}<br>  {# Confirm password label #}
+    {{ form.password2(size=32) }}<br>  {# Confirm password input field #}
+
+    {{ form.submit() }}  {# Submit button #}
+</form>
+{% endblock %}

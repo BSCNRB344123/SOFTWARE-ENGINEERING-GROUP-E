@@ -1,0 +1,33 @@
+<!-- templates/doctor_appointments.html -->
+{% extends 'base.html' %}
+{% block title %}Doctor Appointments{% endblock %}
+
+{% block content %}
+    <h1>Dr. {{ doctor.name }}'s Appointments</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.patient.name }}</td>  {# Patient's name #}
+                    <td>{{ appointment.date }}</td>  {# Appointment date #}
+                    <td>{{ appointment.time }}</td>  {# Appointment time #}
+                    <td>{{ appointment.status }}</td>  {# Appointment status #}
+                  <td>
+                    <form method="POST" action="{{ url_for('cancel_appointment', appointment_id=appointment.id) }}">
+                        <input type="submit" value="Cancel">  {# Cancel button #}
+                    </form>
+                </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

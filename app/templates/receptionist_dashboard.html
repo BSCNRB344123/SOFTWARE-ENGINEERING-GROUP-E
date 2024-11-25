@@ -1,0 +1,63 @@
+{# templates/receptionist_dashboard.html #}
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Receptionist Dashboard</h1>
+
+    <!-- Section for deregistering patients -->
+    <h2>Deregister Patient</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Patient ID</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+                <tr>
+                    <td>{{ patient.id }}</td>
+                    <td>{{ patient.name }}</td>
+                    <td>
+                        <form method="post" action="{{ url_for('deregister_patient', patient_id=patient.id) }}">
+                            <input type="submit" value="Deregister" onclick="return confirm('Are you sure you want to deregister this patient?')">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Section for removing completed appointments -->
+    <h2>Remove Completed Appointments</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Action</th>  {# Column for the Remove button #}
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in completed_appointments %}
+                <tr>
+                    <td>{{ appointment.id }}</td>
+                    <td>{{ appointment.patient.name }}</td>
+                    <td>{{ appointment.doctor.name }}</td>
+                    <td>{{ appointment.date.strftime('%Y-%m-%d') }}</td>  {# Format the date #}
+                    <td>{{ appointment.time.strftime('%H:%M') }}</td>  {# Format the time #}
+                    <td>
+                        <form method="POST" action="{{ url_for('remove_completed_appointment', appointment_id=appointment.id) }}">
+                            <input type="submit" value="Remove" onclick="return confirm('Are you sure you want to remove this completed appointment?')">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

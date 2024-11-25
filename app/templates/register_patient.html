@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Register Patient</h1>
+<form method="post">
+    {{ form.hidden_tag() }}
+
+    <!-- Patient name field -->
+    {{ form.name.label }}<br>
+    {{ form.name(size=32) }}<br>
+
+    <!-- Date of birth field -->
+    {{ form.dob.label }}<br>
+    {{ form.dob(size=32) }}<br>
+
+    <!-- Address field -->
+    {{ form.address.label }}<br>
+    {{ form.address(size=32) }}<br>
+
+    <!-- Username field -->
+    {{ form.username.label }}<br>
+    {{ form.username(size=32) }}<br>
+
+    <!-- Password field -->
+    {{ form.password.label }}<br>
+    {{ form.password(size=32) }}<br>
+
+    <!-- Password confirmation field -->
+    {{ form.password2.label }}<br>
+    {{ form.password2(size=32) }}<br>
+
+    <!-- Submit button -->
+    {{ form.submit() }}
+</form>
+{% endblock %}

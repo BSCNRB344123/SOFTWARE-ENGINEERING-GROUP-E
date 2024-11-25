@@ -1,0 +1,16 @@
+<!-- templates/login.html -->
+{% extends 'base.html' %}
+{% block title %}Patient Login{% endblock %}
+
+{% block content %}
+    <h1>Login</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <!-- Username field -->
+        {{ form.username.label }} {{ form.username() }}
+        <!-- Password field -->
+        {{ form.password.label }} {{ form.password() }}
+        <!-- Submit button -->
+        {{ form.submit() }}
+    </form>
+{% endblock %}

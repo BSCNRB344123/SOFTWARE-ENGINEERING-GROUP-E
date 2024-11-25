@@ -1,0 +1,9 @@
+Flask==3.1.2
+Flask-SQLAlchemy==3.0.5
+Flask-Migrate==4.0.4
+Flask-WTF==1.1.1
+Flask-Login==1.0.2
+Werkzeug==3.1.2
+WTForms==3.1.0
+python==3.11.5
+shortuuid==1.0.1

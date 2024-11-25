@@ -1,0 +1,45 @@
+<!-- templates/book_appointment.html -->
+{% extends 'base.html' %}
+{% block title %}Book Appointment{% endblock %}
+
+{% block content %}
+
+  <h1>Book Appointment</h1>
+  <h2>Patient Details</h2>
+  {% if current_user.patients %} {# Check if the user has any associated patients #}
+  <p><strong>Name:</strong> {{ current_user.patients[0].name }}</p>  {# Access the first patient #}
+  <p><strong>ID:</strong> {{ current_user.patients[0].id }}</p>
+{% else %}  {# Handle the case where no patient is associated #}
+  <p>No patient record found. Please register as a patient first.</p>
+  {# You might want to redirect or provide a registration link here #}
+{% endif %}
+    <h2>Available Doctors</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Specialization</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+                <tr>
+                    <td>{{ doctor.name }}</td>  {# Doctor's name #}
+                    <td>{{ doctor.specialization }}</td>  {# Doctor's specialization #}
+                    <td>{{ doctor.id }}</td>  {# Doctor's ID #}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+  <form method="post">
+      {{ form.hidden_tag() }}
+      {{ form.patient_id.label }} {{ form.patient_id() }}  {# Patient ID label and input field #}
+      {{ form.doctor_id.label }} {{ form.doctor_id() }}  {# Doctor ID label and input field #}
+      {{ form.date.label }} {{ form.date() }}  {# Appointment date label and input field #}
+      {{ form.time.label }} {{ form.time() }}<br>  {# Appointment time label and input field #}
+
+      {{ form.submit() }}  {# Submit button #}
+  </form>
+{% endblock %}

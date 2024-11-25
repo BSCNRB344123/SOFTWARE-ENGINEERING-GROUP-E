@@ -9,6 +9,6 @@ flask db migrate -m "Initial migration"
 flask db upgrade
 
 # Run the application
-export FLASK_APP=app.py
+export FLASK_APP=run.py
 export FLASK_ENV=production
 flask run

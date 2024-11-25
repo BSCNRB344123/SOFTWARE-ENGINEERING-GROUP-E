@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Appointment Details</h1>
+
+  <p><strong>Patient:</strong> {{ appointment.patient.name }}</p>  {# Patient's name #}
+  <p><strong>Doctor:</strong> {{ appointment.doctor.name }}</p>  {# Doctor's name #}
+  <p><strong>Date:</strong> {{ appointment.date.strftime('%Y-%m-%d') }}</p>  {# Format the date #}
+  <p><strong>Time:</strong> {{ appointment.time.strftime('%H:%M') }}</p>  {# Format the time #}
+  <p><strong>Status:</strong> {{ appointment.status }}</p>  {# Appointment status #}
+
+  <form method="POST" action="{{ url_for('cancel_appointment', appointment_id=appointment.id) }}">
+      <input type="submit" value="Cancel Appointment">  {# Cancel button #}
+  </form>
+
+  <a href="{{ url_for('index') }}">Back to Home</a>  {# Link to go back to home page #}
+{% endblock %}
+

@@ -1,0 +1,15 @@
+{# templates/receptionist_register.html #}
+{% extends 'base.html' %}
+{% block content %}
+<h1>Receptionist Registration</h1>
+<form method="post">
+    {{ form.hidden_tag() }}
+    {{ form.username.label }} {{ form.username(size=32) }}<br>  {# Username label and input field #}
+
+    {{ form.password.label }} {{ form.password(size=32) }}<br>  {# Password label and input field #}
+
+    {{ form.password2.label }} {{ form.password2(size=32) }}<br>  {# Confirm password label and input field #}
+
+    {{ form.submit() }}  {# Submit button #}
+</form>
+{% endblock %}
